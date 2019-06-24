@@ -1,18 +1,15 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import Welcome from './components/Welcome';
-import Example from './components/Example';
-import { Counter } from "./components/Example";
-import ControlPanel from './components/ControlPanel';
+import ControlPanel from './views/ControlPanel';
+import { Provider } from "react-redux";
+import store from './Store.js';
+import TodoApp from "./TodoApp";
 
-const title = "react webpack babel set up";
-const element = <div>{title}</div>;
-
-ReactDom.render(<div>
-    {/*<Welcome name="test"/>*/}
-    {/*<Example/>*/}
-    <ControlPanel/>
-    {/*<Counter initialCount={0}/>*/}
-</div>, document.getElementById('app'));
+ReactDom.render(<Provider store={store}>
+    <div>
+        <ControlPanel/>
+        <TodoApp/>
+    </div>
+</Provider>, document.getElementById('app'));
 
 module.hot.accept();
