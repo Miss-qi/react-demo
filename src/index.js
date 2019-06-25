@@ -7,7 +7,7 @@ import TodoApp from "./TodoApp";
 
 ReactDom.render(<Provider store={store}>
     <div>
-        <ControlPanel/>
+        {/*<ControlPanel/>*/}
         <TodoApp/>
     </div>
 </Provider>, document.getElementById('app'));
