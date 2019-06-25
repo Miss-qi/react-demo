@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 import TodoItem from './todoItem';
 import { removeTodo, toggleTodo } from "../actions";
 import { FilterTypes } from "../../contants";
+import { selectVisibleTodos } from "../selector";
 
 const TodoList = ({ todos, onToggleTodo, onRemoveTodo }) => {
     return (
@@ -28,22 +29,9 @@ TodoList.propTypes = {
 };
 
 
-const selectVisibleTodos = (todos, filter) => {
-    switch (filter) {
-        case FilterTypes.ALL:
-            return todos;
-        case FilterTypes.COMPLETED:
-            return todos.filter(item => item.completed);
-        case FilterTypes.UNCOMPLETED:
-            return todos.filter(item => !item.completed);
-        default:
-            throw new Error('unsupported filter');
-    }
-}
-
 const mapStateToProps = (state) => {
     return {
-        todos: selectVisibleTodos(state.todos, state.filter)
+        todos: selectVisibleTodos(state)
     };
 };
 
