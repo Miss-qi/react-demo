@@ -42,8 +42,6 @@ class Counter extends Component {
     }
 
     render() {
-        console.log('enter render ' + this.props.caption);
-
         const { caption } = this.props;
 
         return (

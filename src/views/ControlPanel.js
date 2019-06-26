@@ -21,9 +21,8 @@ class ControlPanel extends Component {
     }
 
     render() {
-        console.log('enter ControlPanel render');
 
-        return(
+        return (
             <div style={style}>
                 <Counter caption="First" onUpdate={this.onUpdate}/>
                 <Counter caption="Second" initValue={10} onUpdate={this.onUpdate}/>

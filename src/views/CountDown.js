@@ -25,7 +25,9 @@ class CountDown extends React.Component{
     }
 
     render() {
-        return this.props.children(this.state.count);
+        return (
+            this.props.children(this.state.count)
+        )
     }
 
 }
