@@ -11,8 +11,14 @@ class ControlPanel extends Component {
         this.initValues = [0, 10, 20];
         const initSum = this.initValues.reduce((a, b) => a + b, 0);
         this.state = {
-            sum: initSum
+            sum: initSum,
+            test: 0
         }
+    }
+
+    componentDidMount() {
+        console.log('controlpanle componentDidMount');
+        this.setState({ test: 1})
     }
 
     onUpdate = (newValue, previousValue) => {
@@ -24,6 +30,7 @@ class ControlPanel extends Component {
 
         return (
             <div style={style}>
+                <div onClick={() => this.setState({test: 3})}>{this.state.test}</div>
                 <Counter caption="First" onUpdate={this.onUpdate}/>
                 <Counter caption="Second" initValue={10} onUpdate={this.onUpdate}/>
                 <Counter caption="Third" initValue={20} onUpdate={this.onUpdate}/>

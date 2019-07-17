@@ -13,12 +13,13 @@ class Counter extends Component {
         this.onClickDecrementButton = this.onClickDecrementButton.bind(this);
 
         this.state = {
-            count: props.initValue
+            count: props.initValue,
+            haha: 0
         }
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log('enter componentWillReceiveProps ' + this.props.caption);
+        console.log('counter enter componentWillReceiveProps ' + this.props.caption);
     }
 
     updateCount(isIncrement) {
@@ -46,6 +47,8 @@ class Counter extends Component {
 
         return (
             <div>
+                <button onClick={() => this.setState({haha: 1})}>123</button>
+                <div>{this.state.haha}</div>
                 <button style={buttonStyle} onClick={this.onClickIncrementButton}>+</button>
                 <button style={buttonStyle} onClick={this.onClickDecrementButton}>-</button>
                 <span>{caption} count: {this.state.count}</span>

@@ -10,6 +10,7 @@ import CountDown from "./views/CountDown";
 import ControlPanel from "./views/ControlPanel";
 import { Provider } from "react-redux";
 import App from './pages/App';
+import ChangeColor from "./pages/ChangeColor";
 
 const history = createBrowserHistory();
 const Routes = ({ store }) => (
@@ -21,7 +22,8 @@ const Routes = ({ store }) => (
             </App>
             <Route exact path="/todo" render={TodoApp}/>
             <Route exact path="/count-down" render={CountDown}/>
-            <Route exact path="/control-panel" render={ControlPanel}/>
+            <Route exact path="/control-panel" component={ControlPanel}/>
+            <Route exact path="/change-color" component={ChangeColor}/>
             <Route exact path="/" render={NotFound}/>
         </Router>
     </Provider>
